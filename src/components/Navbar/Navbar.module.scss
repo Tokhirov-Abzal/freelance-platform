@@ -1,0 +1,86 @@
+$blue: rgba(56, 154, 255, 0.8);
+
+a {
+  text-decoration: none;
+}
+
+.navbarContainer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  padding: 15px;
+  background-color: white;
+}
+
+.logo {
+  width: 110px;
+  height: 80px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.leftNavCntr {
+  display: flex;
+  align-items: center;
+  list-style: none;
+
+  h2 {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+.rightNavCntr {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  li {
+    user-select: none;
+    padding-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    color: darken($blue, 20%);
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  h2 {
+    font-weight: 400;
+  }
+}
+
+span {
+  user-select: none;
+  font-size: 22px;
+  letter-spacing: 5px;
+  cursor: pointer;
+}
+
+.blue {
+  color: $blue;
+}
+
+.red {
+  color: rgb(233, 194, 22);
+}
+
+.blueBtn {
+  background-color: $blue;
+  color: white;
+  font-size: 18px;
+  margin-right: 20px;
+  padding: 10px;
+  border-width: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: background ease-in 0.2s;
+  &:hover {
+    background-color: darken($blue, 20%);
+  }
+}
