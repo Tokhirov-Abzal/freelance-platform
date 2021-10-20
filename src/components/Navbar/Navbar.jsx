@@ -3,11 +3,20 @@ import { Link } from "react-router-dom";
 import classname from "./Navbar.module.scss";
 import logo from "../../assets/favicon.png";
 const Navbar = () => {
+  const [activeNav, setActiveNav] = React.useState(null);
+  const navLinks = ["Specialist", "Job", "About"];
+
+  const handleClick = () => {
+    setActiveNav(null);
+  };
   return (
     <div className={classname.navbarContainer}>
       <ul className={classname.leftNavCntr}>
         <Link to="/">
-          <li style={{ display: "flex", alignItems: "center" }}>
+          <li
+            onClick={handleClick}
+            style={{ display: "flex", alignItems: "center" }}
+          >
             <img className={classname.logo} src={logo} alt="logo" />{" "}
             <span className={classname.blue}>Universal</span>
             <span className={classname.red}>Proffessionals</span>
@@ -15,21 +24,20 @@ const Navbar = () => {
         </Link>
       </ul>
       <ul className={classname.rightNavCntr}>
-        <Link to="/specialist">
-          <li>
-            <h2>Specialist</h2>
-          </li>
-        </Link>
-        <Link to="/job">
-          <li>
-            <h2> Job</h2>
-          </li>
-        </Link>
-        <Link to="/about">
-          <li>
-            <h2>About</h2>
-          </li>
-        </Link>
+        {navLinks.map((link, index) => (
+          <Link to={`/${link.toLowerCase()}`}>
+            <li
+              onClick={() => {
+                setActiveNav(index);
+                console.log(activeNav, index);
+              }}
+              className={index === activeNav ? classname.active : ""}
+            >
+              <h2>{link}</h2>
+            </li>
+          </Link>
+        ))}
+
         <Link to="/publish">
           <button className={classname.blueBtn}>
             <h2>Publish</h2>

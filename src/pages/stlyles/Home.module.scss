@@ -1,0 +1,11 @@
+$blue: rgba(56, 154, 255, 0.8);
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 0 300px;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $blue;
+  height: 90vh;
+}
